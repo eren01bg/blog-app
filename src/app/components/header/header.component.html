@@ -1,0 +1,45 @@
+<header>
+
+
+  <div class="header-left">
+
+    <div class="logo">
+      <img src="./assets/logo.png" alt="logo">
+    </div>
+
+  </div>
+
+  <div class="header-center">
+
+    <nav>
+
+      <ul>
+
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/blog">Blog</a></li>
+        <li><a routerLink="/contact">Contact</a></li>
+        <li><a routerLink="/login">Login</a></li>
+        <li><a routerLink="/register">Register</a></li>
+        <li><a routerLink="/logout">Logout</a></li>
+
+      </ul>
+
+    </nav>
+
+  </div>
+
+  <div class="header-right">
+
+    <div class="search">
+      <input type="text" placeholder="Search">
+      <fa-icon [icon]="faSearch" [style]="'color: #52525B'"></fa-icon>
+    </div>
+
+    <div class="create-post">
+      <a routerLink="/create-post">Create Post</a>
+    </div>
+
+  </div>
+
+
+</header>

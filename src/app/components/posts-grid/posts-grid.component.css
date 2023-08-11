@@ -1,0 +1,75 @@
+.posts-grid-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.posts-grid .post-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  border-radius: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  color: #fff;
+  padding: 1rem;
+}
+
+.posts-grid .post-card .post-card-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.posts-grid .post-card .post-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+
+.posts-grid .post-card .labels .label {
+
+  color: #4B6BFB;
+  background: #4B6BFB0D;
+  border-radius: 0.75rem;
+
+}
+
+.posts-grid .post-card h3.title {
+  color: #FFF;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.75rem;
+}
+
+.posts-grid .post-card .details .user-details .profile-photo {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.posts-grid-container button.view-all {
+
+  background-color: #696A754D;
+
+}
