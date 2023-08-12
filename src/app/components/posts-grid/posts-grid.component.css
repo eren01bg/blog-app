@@ -73,3 +73,100 @@
   background-color: #696A754D;
 
 }
+
+@media screen and (max-width: 1024px) {
+
+
+
+  .posts-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: .5rem;
+
+  }
+
+  .posts-grid .details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .posts-grid .details .user-details {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+  }
+
+  .posts-grid  .details .date {
+    font-size: .8rem;
+    text-align: center;
+
+  }
+
+  .posts-grid  .details .user-details .user-name {
+    font-size: .8rem;
+  }
+
+  .posts-grid  .details .user-details .profile-photo {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .posts-grid .post-card h3.title {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+
+
+
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .posts-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: .5rem;
+
+  }
+
+  .posts-grid .details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .posts-grid .details .user-details {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+  }
+
+  .posts-grid  .details .date {
+    font-size: .8rem;
+    text-align: center;
+
+  }
+
+  .posts-grid  .details .user-details .user-name {
+    font-size: .8rem;
+  }
+
+  .posts-grid  .details .user-details .profile-photo {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .posts-grid .post-card h3.title {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+
+
+
+}

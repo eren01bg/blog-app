@@ -12,6 +12,7 @@ body {
   background-color: #181A2A;
   max-width: 1300px;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 
 a {
@@ -101,4 +102,30 @@ button {
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5rem;
+}
+
+@media screen and (max-width: 1300px) {
+
+  body {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+}
+
+
+@media screen and (max-width: 1024px) {
+
+  .labels .label {
+    font-size: 0.75rem;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+    text-align: center;
+    align-self: center;
+  }
+
+
+
 }

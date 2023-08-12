@@ -77,3 +77,29 @@ header .header-right .create-post a {
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
 }
+
+header .mobile-header {
+
+    display: none;
+
+}
+
+@media screen and (max-width: 1024px) {
+
+
+  header .header-center {
+    display: none;
+  }
+
+  header .header-right {
+    display: none;
+  }
+
+  header .mobile-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+}

@@ -1,0 +1,38 @@
+
+footer#footer {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 22rem 4rem 22rem;
+}
+
+footer#footer .copyright-info {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+}
+
+
+footer#footer .copyright-info .company-name {
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+
+footer#footer .copyright-info .year, footer#footer .copyright-info .rights-reserved {
+  color: #BABABF;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+
+
+@media screen and (max-width: 1024px) {
+  footer#footer {
+    padding: 0;
+  }
+
+}
+
