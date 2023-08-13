@@ -6,27 +6,20 @@
     "blog-app": {
       "projectType": "application",
       "schematics": {},
-      "root": "",
-      "sourceRoot": "src",
+      "root": "blog-app/client",
+      "sourceRoot": "blog-app/client/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/blog-app",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
-            "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "index": "blog-app/client/src/index.html",
+            "main": "blog-app/client/src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "blog-app/client/tsconfig.app.json",
+            "assets": ["blog-app/client/src/favicon.ico", "blog-app/client/src/assets"],
+            "styles": ["blog-app/client/src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -77,18 +70,10 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
-            "tsConfig": "tsconfig.spec.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
+            "tsConfig": "blog-app/client/tsconfig.spec.json",
+            "assets": ["blog-app/client/src/favicon.ico", "blog-app/client/src/assets"],
+            "styles": ["blog-app/client/src/styles.css"],
             "scripts": []
           }
         }
