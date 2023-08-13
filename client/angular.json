@@ -3,23 +3,55 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "blog-app": {
+    "client": {
       "projectType": "application",
-      "schematics": {},
-      "root": "blog-app/client",
-      "sourceRoot": "blog-app/client/src",
+      "schematics": {
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:component": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:resolver": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/blog-app",
-            "index": "blog-app/client/src/index.html",
-            "main": "blog-app/client/src/main.ts",
-            "polyfills": ["zone.js"],
-            "tsConfig": "blog-app/client/tsconfig.app.json",
-            "assets": ["blog-app/client/src/favicon.ico", "blog-app/client/src/assets"],
-            "styles": ["blog-app/client/src/styles.css"],
+            "outputPath": "dist/client",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -53,10 +85,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "blog-app:build:production"
+              "browserTarget": "client:build:production"
             },
             "development": {
-              "browserTarget": "blog-app:build:development"
+              "browserTarget": "client:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -64,16 +96,24 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "blog-app:build"
+            "browserTarget": "client:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
-            "tsConfig": "blog-app/client/tsconfig.spec.json",
-            "assets": ["blog-app/client/src/favicon.ico", "blog-app/client/src/assets"],
-            "styles": ["blog-app/client/src/styles.css"],
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
             "scripts": []
           }
         }
