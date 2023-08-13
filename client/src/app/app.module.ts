@@ -14,6 +14,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FeaturedPostComponent } from './components/featured-post/featured-post.component';
 import { PostsGridComponent } from './components/posts-grid/posts-grid.component';
+import { AuthorPageComponent } from './components/author-page/author-page.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { PostsGridComponent } from './components/posts-grid/posts-grid.component
     FooterComponent,
     FeaturedPostComponent,
     PostsGridComponent,
+    AuthorPageComponent,
   ],
   imports: [
     BrowserModule,

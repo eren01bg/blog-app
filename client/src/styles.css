@@ -104,6 +104,15 @@ button {
   line-height: 1.5rem;
 }
 
+h1.title {
+  text-align: center;
+  color: #FFF;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.25rem;
+  padding: 2rem 0;
+}
+
 @media screen and (max-width: 1300px) {
 
   body {

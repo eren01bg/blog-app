@@ -6,14 +6,16 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PostComponent } from './components/post/post.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthorPageComponent } from './components/author-page/author-page.component';
 
 const routes: Routes = [
   {path: '', component : HomeComponent},
   {path: 'login', component : LoginComponent},
   {path: 'register', component : RegisterComponent},
   {path: 'post/:id', component : PostComponent},
-  {path: 'category', component : CategoryComponent},
-  {path: 'create-blog', component : CreateBlogComponent},
+  {path: 'category/:id', component : CategoryComponent},
+  {path: 'create-post', component : CreateBlogComponent},
+  {path: 'author/:id', component : AuthorPageComponent},
 ];
 
 @NgModule({
