@@ -113,6 +113,14 @@ h1.page-title {
   padding: 2rem 0;
 }
 
+.error-msg {
+  color: #FF4D4F;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  padding: 0.25rem 0;
+}
+
 @media screen and (max-width: 1300px) {
 
   body {
@@ -135,6 +143,6 @@ h1.page-title {
     align-self: center;
   }
 
-
-
 }
+
+
