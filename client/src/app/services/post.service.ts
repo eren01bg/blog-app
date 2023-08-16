@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient) { }
 
   private apiUrl = 'http://localhost:3000/api/posts';
 
-  getPosts(): Observable<any> {
-    return this.http.get(this.apiUrl);
+  getPosts(limit: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}?limit=${limit}`);
+  }
+
+  getLatestPost(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/latest`);
   }
 
   getPost(id: string): Observable<any> {
@@ -32,12 +35,12 @@ export class PostService {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
-  getPostsByUser(id: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/user/${id}`);
+  getPostsByAuthor(id: string, limit: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/author/${id}?limit=${limit}`);
   }
 
-  getPostsByCategory(id: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/category/${id}`);
+  getPostsByCategory(id: string, limit: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/category/${id}?limit=${limit}`);
   }
 
 

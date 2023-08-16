@@ -26,6 +26,15 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(): void {
+
+    const confirmed = confirm('Are you sure you want to logout?');
+
+    if (!confirmed) {
+
+      return;
+
+    }
+
     this.authService.logout();
   }
 

@@ -1,58 +1,69 @@
 <section class="posts-grid-container">
 
-  <h2 class="section-title">Recent Posts</h2>
-
+  <h2 *ngIf="showTitle" class="section-title">{{title}}</h2>
 
   <div class="posts-grid">
 
-    <a routerLink="/post/1" class="post-card" *ngFor="let post of posts">
+    <div *ngFor="let post of posts" class="post-card">
 
-      <div class="post-card-image">
+      <a routerLink="/post/{{post._id}}" class="post-card-image">
 
-        <img src="./assets/hero.jpg" alt="post-card">
+        <img src="{{post?.image}}" alt="post-card">
 
-      </div>
+      </a>
 
+      <div class="post-card-top">
 
-      <div class="labels">
+        <div class="labels">
 
-        <a class="label">Technology</a>
+          <a routerLink="/category/{{post.category?._id}}" class="label">{{ post.category?.name }}</a>
+
+        </div>
+
+        <div *ngIf="showActions" class="actions">
+          <a *ngIf="post.author?._id == userId" routerLink="/edit-post/{{ post._id }}" class="edit-btn">
+            <fa-icon [icon]="faPencil" size="xs"></fa-icon>
+          </a>
+
+          <a *ngIf="post.author?._id == userId" (click)="onDelete(post._id)" class="delete-btn">
+            <fa-icon [icon]="faTrash" size="xs"></fa-icon>
+          </a>
+
+        </div>
 
       </div>
 
       <h3 class="title">
-        The Impact of Technology on the Workplace: How Technology is Changing
+        <a routerLink="/post/{{ post._id }}">
+          {{ post.title }}
+        </a>
       </h3>
 
       <div class="details">
 
         <div class="user-details">
 
-          <div class="profile-photo">
+          <a routerLink="/author/{{post.author?._id}}" class="profile-photo">
 
-            <img src="./assets/user.jpg" alt="profile-photo">
+            <img src="{{ post.author?.image }}" alt="profile-photo">
 
-          </div>
+          </a>
 
-          <div class="user-name">
-            Tracey Wood
-          </div>
+          <a routerLink="/author/{{post.author?._id}}" class="user-name">
+            {{ post.author?.firstName }} {{ post.author?.lastName }}
+          </a>
 
-        </div>
-
-        <div class="date">
-          August 20, 2022
         </div>
 
       </div>
 
 
-    </a>
+    </div>
 
   </div>
 
-  <button class="view-all">
+  <a *ngIf="showMoreButton" routerLink="/blog" class="btn view-all">
     View All Posts
-  </button>
+  </a>
 
 </section>

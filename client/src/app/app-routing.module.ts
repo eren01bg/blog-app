@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoryComponent } from './components/category/category.component';
-import { CreateBlogComponent } from './components/create-blog/create-blog.component';
+import { PostFormComponent } from './components/post-form/post-form.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PostComponent } from './components/post/post.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthorPageComponent } from './components/author-page/author-page.component';
 import { authGuard } from './guards/auth.guard';
+import { ProfileComponent } from './components/profile/profile.component';
+import { BlogPageComponent } from './components/blog-page/blog-page.component';
 
 
 const routes: Routes = [
@@ -16,8 +18,11 @@ const routes: Routes = [
   {path: 'register', component : RegisterComponent},
   {path: 'post/:id', component : PostComponent},
   {path: 'category/:id', component : CategoryComponent},
-  {path: 'create-post', component : CreateBlogComponent, canActivate : [authGuard]},
+  {path: 'create-post', component : PostFormComponent, canActivate : [authGuard]},
+  {path: 'edit-post/:id', component : PostFormComponent, canActivate : [authGuard]},
   {path: 'author/:id', component : AuthorPageComponent},
+  {path: 'blog', component : BlogPageComponent},
+  {path: 'profile', component : ProfileComponent, canActivate : [authGuard]},
 ];
 
 @NgModule({

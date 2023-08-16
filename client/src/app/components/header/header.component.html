@@ -17,7 +17,7 @@
 
         <li><a routerLink="/">Home</a></li>
         <li><a routerLink="/blog">Blog</a></li>
-        <li><a routerLink="/contact">Contact</a></li>
+        <li *ngIf="isLoggedIn"><a routerLink="/profile">My Profile</a></li>
         <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
         <li *ngIf="!isLoggedIn"><a routerLink="/register">Register</a></li>
         <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>

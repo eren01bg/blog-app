@@ -1,72 +1,83 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  OnInit,
+} from '@angular/core';
+import { PostService } from '../../services/post.service';
+import { Observer } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
+import { faPencil } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-posts-grid',
   templateUrl: './posts-grid.component.html',
-  styleUrls: ['./posts-grid.component.css']
+  styleUrls: ['./posts-grid.component.css'],
 })
-export class PostsGridComponent implements OnInit {
+export class PostsGridComponent implements OnChanges, OnInit {
+  @Input() postType: string = 'latest';
+  // typeId can be either the ID of a category or the author's ID depending on the postType value
+  @Input() typeId: string = '';
+  @Input() limit: number = 6;
+  @Input() showTitle: boolean = true;
+  @Input() title: string = 'Latest Posts';
+  @Input() showMoreButton: boolean = true;
+  @Input() showActions: boolean = false;
 
-  constructor() { }
+  posts: any[] = [];
+  userId: string | null = null;
 
-  // imageUrl, label, title, authorImg, authorName, date
+  faPencil = faPencil;
+  faTrash = faTrash;
 
-  posts = [
-    {
-      imageUrl: 'https://picsum.photos/200/300',
-      label: 'Technology',
-      title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.',
-      authorImg: 'https://picsum.photos/200/300',
-      authorName: 'John Doe',
-      date: 'May 24, 2019'
+  postObserver: Observer<any[]> = {
+    next: (posts: any[]) => {
+      this.posts = posts;
     },
-    {
-      imageUrl: 'https://picsum.photos/200/300',
-      label: 'Technology',
-      title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.',
-      authorImg: 'https://picsum.photos/200/300',
-      authorName: 'John Doe',
-      date: 'May 24, 2019'
+    error: (error: any) => {
+      console.error('Error fetching posts:', error);
     },
-    {
-      imageUrl: 'https://picsum.photos/200/300',
-      label: 'Technology',
-      title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.',
-      authorImg: 'https://picsum.photos/200/300',
-      authorName: 'John Doe',
-      date: 'May 24, 2019'
-    },
-    {
-      imageUrl: 'https://picsum.photos/200/300',
-      label: 'Technology',
-      title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.',
-      authorImg: 'https://picsum.photos/200/300',
-      authorName: 'John Doe',
-      date: 'May 24, 2019'
-    },
-    {
-      imageUrl: 'https://picsum.photos/200/300',
-      label: 'Technology',
-      title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.',
-      authorImg: 'https://picsum.photos/200/300',
-      authorName: 'John Doe',
-      date: 'May 24, 2019'
-    },
-    {
-      imageUrl: 'https://picsum.photos/200/300',
-      label: 'Technology',
-      title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.',
-      authorImg: 'https://picsum.photos/200/300',
-      authorName: 'John Doe',
-      date: 'May 24, 2019'
-    }
-  ];
+    complete: () => {},
+  };
 
+  constructor(
+    private postService: PostService,
+    private authService: AuthService
+  ) {}
 
+  ngOnInit(): void {
 
+    this.userId = this.authService.getUserId();
 
-
-  ngOnInit() {
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['postType'] || changes['typeId'] || changes['limit']) {
+      this.fetchPosts();
+    }
+  }
+
+  private fetchPosts(): void {
+    if (this.postType === 'latest') {
+      this.postService.getPosts(this.limit).subscribe(this.postObserver);
+    }
+    if (this.postType === 'category' && this.typeId !== undefined) {
+      this.postService
+        .getPostsByCategory(this.typeId, this.limit)
+        .subscribe(this.postObserver);
+    }
+    if (this.postType === 'author' && this.typeId !== undefined) {
+      this.postService
+        .getPostsByAuthor(this.typeId, this.limit)
+        .subscribe(this.postObserver);
+    }
+  }
+
+  onDelete(postId: string): void {
+    // this.postService.deletePost(postId).subscribe(() => {
+    //   this.fetchPosts();
+    // });
+  }
 }

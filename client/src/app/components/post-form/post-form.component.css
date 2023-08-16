@@ -1,4 +1,4 @@
-div#create-post {
+div#post-form {
 
   display: flex;
   flex-direction: column;
@@ -7,11 +7,11 @@ div#create-post {
 
 }
 
-div#create-post .page-title {
+div#post-form .page-title {
   padding-bottom: .5rem;
 }
 
-#create-post form {
+#post-form form {
 
   display: flex;
   padding: 2.5rem;
@@ -29,7 +29,7 @@ div#create-post .page-title {
 
 }
 
-#create-post form .form-group {
+#post-form form .form-group {
   display: flex;
   flex-direction: column;
   gap: .2rem;
@@ -37,7 +37,7 @@ div#create-post .page-title {
   color: white;
 }
 
-#create-post form .form-group label {
+#post-form form .form-group label {
   color: #FFF;
   font-size: .8rem;
   font-weight: 700;
@@ -46,7 +46,7 @@ div#create-post .page-title {
   font-family: Inter;
 }
 
-#create-post form .form-group input {
+#post-form form .form-group input {
   border-radius: 0.625rem;
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: #202124;
@@ -61,7 +61,7 @@ div#create-post .page-title {
   transition: border-color 0.2s ease-in-out;
 }
 
-#create-post form .form-group textarea {
+#post-form form .form-group textarea {
   border-radius: 0.625rem;
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: #202124;
@@ -75,7 +75,7 @@ div#create-post .page-title {
   transition: border-color 0.2s ease-in-out;
 }
 
-#create-post form .form-group select {
+#post-form form .form-group select {
 
   border-radius: 0.625rem;
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -100,36 +100,36 @@ div#create-post .page-title {
 
 }
 
-#create-post form .form-group select::-ms-expand {
+#post-form form .form-group select::-ms-expand {
   display: none;
 }
 
-#create-post form .form-group input:focus,
-#create-post form .form-group textarea:focus {
+#post-form form .form-group input:focus,
+#post-form form .form-group textarea:focus {
   border: 1px solid #4B6BFB;
 }
 
-#create-post form .form-group input.ng-invalid.ng-touched,
-#create-post form .form-group textarea.ng-invalid.ng-touched {
+#post-form form .form-group input.ng-invalid.ng-touched,
+#post-form form .form-group textarea.ng-invalid.ng-touched {
   border: 1px solid #FF4D4F;
 
 }
 
-#create-post .or-register a{
+#post-form .or-register a{
   color: #4B6BFB;
   font-weight: 700;
   transition: all 0.2s ease-in-out;
 }
 
-#create-post .or-register a:hover{
+#post-form .or-register a:hover{
   opacity: 0.8;
 }
 
-#create-post .or-register {
+#post-form .or-register {
   color: white;
 }
 
-#create-post .form-error {
+#post-form .form-error {
   background: #FF4D4F;
   color: white;
   padding: 0.5rem;

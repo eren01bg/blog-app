@@ -12,7 +12,9 @@ export class AuthService {
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.isLoggedIn());
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.updateLoginStatus();
+  }
 
   registerUser(userData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/register`, userData);
@@ -52,5 +54,19 @@ export class AuthService {
   getAuthorizationToken(): string | null {
     return localStorage.getItem('token');
   }
+
+  getUserId(): string | null {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decodedToken = jwt_decode(token) as { userId: string };
+      return decodedToken.userId;
+    }
+    return null;
+  }
+
+  getUserDetails(id: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/user/${id}`);
+  }
+
 
 }

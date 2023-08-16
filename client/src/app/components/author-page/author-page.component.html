@@ -8,28 +8,26 @@
 
         <div class="profile-photo">
 
-          <img src="./assets/user.jpg" alt="profile-photo">
+          <img src="{{author.image}}" alt="profile-photo">
 
         </div>
 
         <div class="user-personal-info">
 
           <div class="user-name">
-            Tracey Wood
+            {{ author.firstName }} {{ author.lastName }}
           </div>
 
           <div class="user-role">
-            Collaborator & Writer
+            User
           </div>
 
         </div>
 
       </div>
 
-      <p class="user-bio">
-        Meet Jonathan Doe, a passionate writer and blogger with a love for technology and travel. Jonathan holds a
-        degree in Computer Science and has spent years working in the tech industry, gaining a deep understanding of the
-        impact technology has on our lives.
+      <p *ngIf="author.biography" class="user-bio">
+        {{ author.biography }}
       </p>
 
       <div class="user-social-links">
@@ -62,7 +60,8 @@
 
   </div>
 
-  <app-posts-grid></app-posts-grid>
+  <app-posts-grid [showTitle]="false" [postType]="'author'" [typeId]="author._id" [showMoreButton]="false"></app-posts-grid>
+
 
 
 </section>

@@ -1,11 +1,9 @@
 <div id="category">
-
-  <h1 class="title">
-    Page Title
+  <h1 class="page-title">
+    {{ category.name }}
   </h1>
 
-  <app-featured-post></app-featured-post>
-
-  <app-posts-grid></app-posts-grid>
+  <app-posts-grid [showTitle]="false" [postType]="'category'" [typeId]="category._id"></app-posts-grid>
 
 </div>
+

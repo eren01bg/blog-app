@@ -47,6 +47,37 @@
   border-radius: 0.75rem;
 }
 
+.posts-grid .post-card .post-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.posts-grid .post-card .post-card-top .actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.posts-grid .post-card .post-card-top .actions .edit-btn {
+  background-color: #4B6BFB;
+  border-radius: 0.75rem;
+  padding: 0.5rem .75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.posts-grid .post-card .post-card-top .actions .delete-btn {
+  background-color: #FF4B4B;
+  border-radius: 0.75rem;
+  padding: 0.5rem .75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .posts-grid .post-card .labels .label {
 
@@ -61,6 +92,9 @@
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.75rem;
+  width: 100%;
+  text-align: left;
+  min-height: 3.5rem;
 }
 
 .posts-grid .post-card .details .user-details .profile-photo {

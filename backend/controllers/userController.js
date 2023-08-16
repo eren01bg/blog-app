@@ -36,7 +36,7 @@ exports.loginUser = async (req, res) => {
 
     const email = req.body.email;
 
-    const user = User.findOne({email: email});
+    const user = await User.findOne({email: email});
 
     if(user) {
 
@@ -57,5 +57,33 @@ exports.loginUser = async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
 
   }
+  
 };
+
+exports.getUser = async (req, res) => {
+
+  const userId = req.params.id;
+
+  try {
+
+    const user = await User.findById(userId);
+
+    if(!user) {
+        
+      res.status(404).json({ message: 'User not found' });
+  
+    }
+
+    res.status(200).json(user);
+
+  } catch (err) {
+
+    console.error(err);
+
+    res.status(500).json({ message: 'Internal server error' });
+
+  }
+
+};
+
 

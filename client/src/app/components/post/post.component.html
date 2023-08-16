@@ -1,10 +1,12 @@
 <article id="post">
 
   <div class="labels">
-    <a class="label">Technology</a>
+    <a class="label">{{post.category?.name}}</a>
   </div>
 
-  <h1 class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
+  <h1 class="title">
+    {{post?.title}}
+  </h1>
 
   <div class="details">
 
@@ -12,56 +14,27 @@
 
       <div class="profile-photo">
 
-        <img src="./assets/user.jpg" alt="profile-photo">
+        <img src="{{post.author?.image}}" alt="profile-photo">
 
       </div>
 
       <div class="user-name">
-        Tracey Wood
+        {{post.author?.firstName}} {{post.author?.lastName}}
       </div>
 
     </div>
 
-    <div class="date">
-      August 20, 2022
-    </div>
+
 
   </div>
 
   <div class="featured-image">
 
-    <img src="./assets/hero.jpg" alt="featured-image">
+    <img src="{{post?.image}}" alt="featured-image">
 
   </div>
 
-  <div class="content">
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget fermentum aliquam, elit nunc
-      ultricies nunc, euismod aliquet nunc nunc sit amet urna. Donec euismod, nisl eget fermentum aliquam, elit nunc
-      ultricies nunc, euismod aliquet nunc nunc sit amet urna. Donec euismod, nisl eget fermentum aliquam, elit nunc
-      ultricies nunc, euismod aliquet nunc nunc sit amet urna.</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget fermentum aliquam, elit nunc
-      ultricies nunc, euismod aliquet nunc nunc sit amet urna. Donec euismod, nisl eget fermentum aliquam, elit nunc
-      ultricies nunc, euismod aliquet nunc nunc sit amet urna. Donec euismod, nisl eget fermentum aliquam, elit nunc
-      ultricies nunc, euismod aliquet nunc nunc sit amet urna.</p>
-
-    <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget fermentum aliquam, elit nunc
-      ultricies nunc, euismod aliquet nunc nunc sit amet urna. Donec euismod, nisl eget fermentum aliquam, elit nunc
-      ultricies nunc, euismod aliquet nunc nunc sit amet urna. Donec euismod, nisl eget fermentum aliquam, elit nunc
-      ultricies nunc, euismod aliquet nunc nunc sit amet urna.</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget fermentum aliquam, elit nunc
-      ultricies nunc, euismod aliquet nunc nunc sit amet urna. Donec euismod, nisl eget fermentum aliquam, elit nunc
-      ultricies nunc, euismod aliquet nunc nunc sit amet urna. Donec euismod, nisl eget fermentum aliquam, elit nunc
-      ultricies nunc</p>
-
-    <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget fermentum aliquam, elit nunc
-      ultricies nunc, euismod aliquet nunc nunc sit amet urna. Donec euismod, nisl eget fermentum aliquam, elit nunc
-      ultricies nunc</blockquote>
-
+  <div class="content" [innerHTML]="post?.content">
   </div>
 
 </article>

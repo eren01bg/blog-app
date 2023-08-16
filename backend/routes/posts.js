@@ -8,10 +8,12 @@ router.post('/', validationMiddleware.validateCreatePost, validationMiddleware.v
 // router.put('/:id', postController.updatePost);
 // router.delete('/:id', postController.deletePost);
 
-// router.get('/', postController.getPosts);
-// router.get('/:id', postController.getPostById);
-// router.get('/user/:id', postController.getPostsByUser);
-// router.get('/category/:id', postController.getPostsByCategory);
+router.get('/', postController.getPosts);
+router.get('/latest', postController.getLatestPost);
+router.get('/:id', postController.getPostById);
+router.get('/author/:id', postController.getPostsByAuthor);
+router.get('/category/:id', postController.getPostsByCategory);
+
 
 
 module.exports = router;

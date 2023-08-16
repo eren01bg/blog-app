@@ -12,13 +12,15 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PostComponent } from './components/post/post.component';
 import { CategoryComponent } from './components/category/category.component';
-import { CreateBlogComponent } from './components/create-blog/create-blog.component';
+import { PostFormComponent } from './components/post-form/post-form.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FeaturedPostComponent } from './components/featured-post/featured-post.component';
 import { PostsGridComponent } from './components/posts-grid/posts-grid.component';
 import { AuthorPageComponent } from './components/author-page/author-page.component';
+import { BlogPageComponent } from './components/blog-page/blog-page.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
@@ -29,12 +31,14 @@ import { AuthorPageComponent } from './components/author-page/author-page.compon
     RegisterComponent,
     PostComponent,
     CategoryComponent,
-    CreateBlogComponent,
+    PostFormComponent,
     HeaderComponent,
     FooterComponent,
     FeaturedPostComponent,
     PostsGridComponent,
     AuthorPageComponent,
+    BlogPageComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
