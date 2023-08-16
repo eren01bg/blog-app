@@ -49,6 +49,9 @@ To run the project locally, follow these steps:
 8. Set up environment variables: Create a `.env` file in the backend folder with a JWT_SECRET_KEY variable to store the secret key for JWT authentication.
 9. Start the backend server: `node server.js`
 
+**Note**: Make sure you have a MongoDB database called `blog-db`, or you can modify the database configuration in `db/db.js` within the backend folder.
+
+
 ## Planned Improvements and Features to Add
 
 1. Implement user comments on blog posts.
