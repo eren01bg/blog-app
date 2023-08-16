@@ -37,6 +37,14 @@
     </div>
 
     <div class="form-group">
+      <label for="image">Avatar URL</label>
+      <input type="text" id="image" class="form-control" formControlName="image" placeholder="https:// or http://">
+      <div *ngIf="registrationForm.get('image')?.invalid && (registrationForm.get('image')?.dirty || registrationForm.get('image')?.touched)">
+        <div class="error-msg" *ngIf="registrationForm.get('image')?.hasError('required')">image is required.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
       <label for="password">Password</label>
       <input type="password" id="password" class="form-control" formControlName="password">
       <div *ngIf="registrationForm.get('password')?.invalid && (registrationForm.get('password')?.dirty || registrationForm.get('password')?.touched)">

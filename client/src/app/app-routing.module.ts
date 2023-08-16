@@ -7,6 +7,8 @@ import { LoginComponent } from './components/login/login.component';
 import { PostComponent } from './components/post/post.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthorPageComponent } from './components/author-page/author-page.component';
+import { authGuard } from './guards/auth.guard';
+
 
 const routes: Routes = [
   {path: '', component : HomeComponent},
@@ -14,7 +16,7 @@ const routes: Routes = [
   {path: 'register', component : RegisterComponent},
   {path: 'post/:id', component : PostComponent},
   {path: 'category/:id', component : CategoryComponent},
-  {path: 'create-post', component : CreateBlogComponent},
+  {path: 'create-post', component : CreateBlogComponent, canActivate : [authGuard]},
   {path: 'author/:id', component : AuthorPageComponent},
 ];
 

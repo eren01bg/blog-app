@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,13 +10,23 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 })
 export class HeaderComponent implements OnInit {
 
+  isLoggedIn = false;
+
+  constructor(private authService: AuthService) {
+    this.authService.isLoggedIn$.subscribe((isLoggedIn) => {
+      this.isLoggedIn = isLoggedIn;
+    });
+  }
+
   faSearch = faSearch;
   faBars = faBars;
 
-  constructor() { }
-
   ngOnInit(): void {
 
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 
 }
