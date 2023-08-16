@@ -39,14 +39,14 @@ MongoDB is used as the database for storing user data and blog posts. The schema
 
 To run the project locally, follow these steps:
 
-1. Clone the repository: `git clone <repository_url>`
+1. Clone the repository: `git clone https://github.com/eren01bg/blog-app`
 2. Navigate to the frontend directory: `cd frontend`
 3. Install frontend dependencies: `npm install`
 4. Start the frontend server: `ng serve`
 5. Open a new terminal window.
 6. Navigate to the backend directory: `cd backend`
 7. Install backend dependencies: `npm install`
-8. Set up environment variables: Create a `.env` file with a JWT_SECRET_KEY variable to store the secret key for JWT authentication.
+8. Set up environment variables: Create a `.env` file in the backend folder with a JWT_SECRET_KEY variable to store the secret key for JWT authentication.
 9. Start the backend server: `node server.js`
 
 ## Planned Improvements and Features to Add
