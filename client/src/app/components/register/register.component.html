@@ -37,6 +37,15 @@
     </div>
 
     <div class="form-group">
+      <label for="biography">Biography</label>
+      <textarea type="biography" id="biography" class="form-control" formControlName="biography" cols="30" rows="5"></textarea>
+      <div *ngIf="registrationForm.get('biography')?.invalid && (registrationForm.get('biography')?.dirty || registrationForm.get('biography')?.touched)">
+        <div class="error-msg" *ngIf="registrationForm.get('biography')?.hasError('minlength')">Biography must be at least 10 characters long.</div>
+        <div class="error-msg" *ngIf="registrationForm.get('biography')?.hasError('maxlength')">Biography cannot be more than 1000 characters long.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
       <label for="image">Avatar URL</label>
       <input type="text" id="image" class="form-control" formControlName="image" placeholder="https:// or http://">
       <div *ngIf="registrationForm.get('image')?.invalid && (registrationForm.get('image')?.dirty || registrationForm.get('image')?.touched)">

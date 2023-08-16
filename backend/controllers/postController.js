@@ -29,8 +29,55 @@ exports.createPost = async (req, res, next) => {
 
     }
 
+}
+
+exports.updatePost = async (req, res, next) => {
+    const id = req.params.id;
+    const { title, content, image, category } = req.body;
+
+    try {
+        const updatedPost = await Post.findOneAndUpdate(
+            { _id: id },
+            { title, content, image, category },
+            { new: true }
+        );
+
+        if (!updatedPost) {
+            return res.status(404).json({ message: 'Post not found' });
+        }
+
+        res.status(200).json({ message: 'Post updated successfully', post: updatedPost });
+    } catch (error) {
+        res.status(400).json({ error });
+    }
+};
+
+exports.deletePost = async (req, res, next) => {
+
+    const id = req.params.id;
+
+    try {
+
+        const post = await Post.findById(id);
+
+        if (!post) {
+
+            return res.status(404).json({ message: 'Post not found' });
+
+        }
+
+        await Post.deleteOne({ _id: id });
+
+        res.status(200).json({ message: 'Post deleted successfully' });
+
+    } catch (err) {
+
+        res.status(400).json({ error });
+
+    }
 
 }
+
 
 exports.getPostById = async (req, res, next) => {
 
@@ -216,3 +263,24 @@ exports.getPostsByAuthor = async (req, res, next) => {
     }
 
 };
+
+
+exports.searchPosts = async (req, res) => {
+  const searchQuery = req.query.q; 
+
+  try {
+    // Search for posts that match the search query in the title or content
+    const posts = await Post.find({
+      $or: [ // $or creates a MongoDB OR query (Like the MYSQL OR query)
+        { title: { $regex: searchQuery, $options: 'i' } }, // This uses regex to make the search case-insensitive - the 'i' flag.
+        { content: { $regex: searchQuery, $options: 'i' } } 
+      ]
+    }).populate('category').populate('author', '-password'); 
+
+    res.status(200).json( posts );
+
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+

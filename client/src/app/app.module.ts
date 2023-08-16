@@ -5,6 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './services/auth.interceptor';
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -21,6 +22,9 @@ import { PostsGridComponent } from './components/posts-grid/posts-grid.component
 import { AuthorPageComponent } from './components/author-page/author-page.component';
 import { BlogPageComponent } from './components/blog-page/blog-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileEditFormComponent } from './components/profile-edit-form/profile-edit-form.component';
+import { SearchComponent } from './components/search/search.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 
 @NgModule({
@@ -39,6 +43,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     AuthorPageComponent,
     BlogPageComponent,
     ProfileComponent,
+    ProfileEditFormComponent,
+    SearchComponent,
+    SearchResultsComponent,
   ],
   imports: [
     BrowserModule,

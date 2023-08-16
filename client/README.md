@@ -1,27 +1,58 @@
-# BlogApp
+# Project Documentation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+## Project Overview
 
-## Development server
+This project is a blogging platform that allows users to read and create blog posts on various topics. Users can register, log in, and create, edit, and delete their own posts. The application features a responsive design, making it accessible on both desktop and mobile devices.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Technologies Used
 
-## Code scaffolding
+- Frontend: Angular
+- Backend: Node.js and Express
+- Database: MongoDB
+- Authentication: JSON Web Tokens (JWT)
+- Styling: CSS
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Project Architecture
 
-## Build
+### Frontend
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The frontend of the application is built using Angular. Key components and services include:
 
-## Running unit tests
+- Components: PostsGridComponent, PostComponent, HeaderComponent, LoginComponent, RegisterComponent, ProfileComponent, and more.
+- Services: PostService, AuthService, CategoryService, providing data access and user authentication.
+- Routing: Utilizes Angular Router for managing different views and navigation.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Backend
 
-## Running end-to-end tests
+The backend is developed using Node.js and Express, providing RESTful APIs. Key components include:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Routes: Various endpoints for user authentication, post creation, editing, and retrieval.
+- Controllers: Handle incoming requests and communicate with models.
+- Models: Define MongoDB schema and interact with the database.
+- Authentication: JWT-based user authentication for securing routes.
 
-## Further help
+### Database
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+MongoDB is used as the database for storing user data and blog posts. The schema includes models for users, posts, and categories.
+
+## Getting Started
+
+To run the project locally, follow these steps:
+
+1. Clone the repository: `git clone <repository_url>`
+2. Navigate to the frontend directory: `cd frontend`
+3. Install frontend dependencies: `npm install`
+4. Start the frontend server: `ng serve`
+5. Open a new terminal window.
+6. Navigate to the backend directory: `cd backend`
+7. Install backend dependencies: `npm install`
+8. Set up environment variables: Create a `.env` file with a JWT_SECRET_KEY variable to store the secret key for JWT authentication.
+9. Start the backend server: `node server.js`
+
+## Planned Improvements and Features to Add
+
+1. Implement user comments on blog posts.
+2. Allow users to like and share posts.
+3. Enhance the search functionality with filters and sorting.
+4. Integrate social media sharing options.
+5. Improve the user interface and add more styling options.

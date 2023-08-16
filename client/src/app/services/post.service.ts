@@ -43,9 +43,8 @@ export class PostService {
     return this.http.get(`${this.apiUrl}/category/${id}?limit=${limit}`);
   }
 
-
-
-
-
+  searchPosts(query: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/search?q=${query}`);
+  }
 
 }

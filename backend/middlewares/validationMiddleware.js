@@ -4,7 +4,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 function validateRegistration(req, res, next) {
-  const { firstName, lastName, email, image, password, password2 } = req.body;
+  const { firstName, lastName, email, biography, image, password, password2 } = req.body;
+
 
   const errors = [];
 
@@ -21,6 +22,13 @@ function validateRegistration(req, res, next) {
   } else if (!email.includes('@')) {
     errors.push('Email is invalid');
   }
+
+  if (biography.length > 1000) {
+    errors.push('Biography must be less than 1000 characters');
+  } else if (biography.length < 10) {
+    errors.push('Biography must be at least 10 characters');
+  }
+
 
   if (!image) {
     errors.push('Image is required');

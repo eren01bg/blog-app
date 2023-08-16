@@ -11,23 +11,6 @@ div#post-form .page-title {
   padding-bottom: .5rem;
 }
 
-#post-form form {
-
-  display: flex;
-  padding: 2.5rem;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-self: stretch;
-  border-radius: 0.625rem;
-  /* border: 1px solid #242535; */
-  /* background: #181A2A; */
-  max-width: 31rem;
-  width: 31rem;
-  margin: 0 auto;
-  gap: 1rem;
-
-}
 
 #post-form form .form-group {
   display: flex;

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Observer } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faFacebook, faYoutube, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+// import { faFacebook, faYoutube, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 
 @Component({
@@ -25,10 +25,10 @@ export class AuthorPageComponent implements OnInit {
   };
 
 
-  faFacebook = faFacebook;
-  faYoutube = faYoutube;
-  faTwitter = faTwitter;
-  faInstagram = faInstagram;
+  // faFacebook = faFacebook;
+  // faYoutube = faYoutube;
+  // faTwitter = faTwitter;
+  // faInstagram = faInstagram;
 
   constructor(private authService: AuthService, private route: ActivatedRoute, private router: Router) { }
 

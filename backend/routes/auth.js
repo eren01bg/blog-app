@@ -11,5 +11,6 @@ router.post('/register', validationMiddleware.validateRegistration, userControll
 router.post('/login', validationMiddleware.validateLogin, userController.loginUser);
 
 router.get('/user/:id', userController.getUser);
+router.patch('/user/:id', userController.updateUser);
 
 module.exports = router;

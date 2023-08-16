@@ -10,6 +10,8 @@ import { AuthorPageComponent } from './components/author-page/author-page.compon
 import { authGuard } from './guards/auth.guard';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BlogPageComponent } from './components/blog-page/blog-page.component';
+import { ProfileEditFormComponent } from './components/profile-edit-form/profile-edit-form.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 
 const routes: Routes = [
@@ -23,6 +25,9 @@ const routes: Routes = [
   {path: 'author/:id', component : AuthorPageComponent},
   {path: 'blog', component : BlogPageComponent},
   {path: 'profile', component : ProfileComponent, canActivate : [authGuard]},
+  {path: 'profile/edit', component: ProfileEditFormComponent, canActivate : [authGuard]},
+  {path: 'search', component: SearchResultsComponent},
+
 ];
 
 @NgModule({

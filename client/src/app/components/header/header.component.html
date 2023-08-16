@@ -3,9 +3,9 @@
 
   <div class="header-left">
 
-    <div class="logo">
+    <a class="logo" routerLink="/">
       <img src="./assets/logo.png" alt="logo">
-    </div>
+    </a>
 
   </div>
 
@@ -30,10 +30,7 @@
 
   <div class="header-right">
 
-    <div class="search">
-      <input type="text" placeholder="Search">
-      <fa-icon [icon]="faSearch" [style]="'color: #52525B'"></fa-icon>
-    </div>
+    <app-search></app-search>
 
     <div class="create-post">
       <a routerLink="/create-post">Create Post</a>
@@ -42,9 +39,37 @@
   </div>
 
   <div class="mobile-header">
+    <div class="mobile-menu" (click)="toggleMobileMenu()" #mobileMenu>
+      <fa-icon [icon]="faBars" size="xl" [style]="'color: #52525B'"></fa-icon>
+    </div>
+  </div>
 
-    <div class="mobile-menu">
-      <fa-icon [icon]="faBars" [style]="'color: #52525B'"></fa-icon>
+  <div
+  class="mobile-menu-content"
+  [class.show]="showMobileMenu"
+  [class.hide]="!showMobileMenu"
+>
+  <div class="mobile-menu-close" (click)="toggleMobileMenu()">
+    <fa-icon [icon]="faTimes" [style]="'color: #52525B'"></fa-icon>
+  </div>
+
+    <nav>
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/blog">Blog</a></li>
+        <li *ngIf="isLoggedIn"><a routerLink="/profile">My Profile</a></li>
+        <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
+        <li *ngIf="!isLoggedIn"><a routerLink="/register">Register</a></li>
+        <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
+      </ul>
+    </nav>
+
+    <div class="search-holder-mobile" #mobileSearch>
+      <app-search></app-search>
+    </div>
+
+    <div class="create-post">
+      <a routerLink="/create-post">Create Post</a>
     </div>
 
   </div>

@@ -5,7 +5,7 @@ const User = require('../models/user');
 exports.registerUser = async (req, res) => {
   try {
 
-    const {firstName, lastName, email, image, password, password2} = req.body;
+    const {firstName, lastName, email, biography, image, password, password2} = req.body;
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -13,6 +13,7 @@ exports.registerUser = async (req, res) => {
       firstName,
       lastName,
       email,
+      biography,
       image,
       password: hashedPassword,
     });
@@ -85,5 +86,36 @@ exports.getUser = async (req, res) => {
   }
 
 };
+
+exports.updateUser = async (req, res) => {
+  const userId = req.params.id;
+  const { firstName, lastName, email, biography, image } = req.body;
+
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        biography: biography,
+        image: image
+      },
+      { new: true } // Return the updated document
+    );
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json({ user: updatedUser });
+
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+
+    
 
 

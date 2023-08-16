@@ -1,0 +1,5 @@
+
+<form class="search" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <input type="text" placeholder="Search" formControlName="search">
+  <fa-icon [icon]="faSearch" [style]="'color: #52525B; cursor: pointer'" (click)="onSubmit()"></fa-icon>
+</form>

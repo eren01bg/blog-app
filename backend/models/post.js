@@ -26,7 +26,7 @@ const postSchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: true, // Add timestamps (createdAt, updatedAt) to the schema
+    timestamps: true,
   }
 );
 

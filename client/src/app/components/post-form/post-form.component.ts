@@ -31,13 +31,15 @@ export class PostFormComponent {
     },
   };
 
+
+
   postObserver = {
     next: (post: any) => {
       this.postForm.patchValue({
-        title: post.title,
-        content: post.content,
-        image: post.image,
-        category: post.category._id,
+        title: post?.title,
+        content: post?.content,
+        image: post?.image,
+        category: post?.category?._id,
       })
     },
     error: (error: HttpErrorResponse) => {

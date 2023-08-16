@@ -1,4 +1,4 @@
-div#login {
+div#profile-edit {
 
   display: flex;
   flex-direction: column;
@@ -7,12 +7,12 @@ div#login {
 
 }
 
-div#login .page-title {
+div#profile-edit .page-title {
   padding-bottom: .5rem;
 }
 
 
-#login form .form-group {
+#profile-edit form .form-group {
   display: flex;
   flex-direction: column;
   gap: .2rem;
@@ -20,7 +20,7 @@ div#login .page-title {
   color: white;
 }
 
-#login form .form-group label {
+#profile-edit form .form-group label {
   color: #FFF;
   font-size: .8rem;
   font-weight: 700;
@@ -29,7 +29,7 @@ div#login .page-title {
   font-family: Inter;
 }
 
-#login form .form-group input {
+#profile-edit form .form-group input {
   border-radius: 0.625rem;
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: #202124;
@@ -44,27 +44,25 @@ div#login .page-title {
   transition: border-color 0.2s ease-in-out;
 }
 
-#login form .form-group input:focus {
+#profile-edit form .form-group input:focus {
   border: 1px solid #4B6BFB;
 }
 
-#login form .form-group input.ng-invalid.ng-touched {
+#profile-edit form .form-group input.ng-invalid.ng-touched {
   border: 1px solid #FF4D4F;
 
 }
 
-#login .or-register a{
+#profile-edit .or-login a{
   color: #4B6BFB;
   font-weight: 700;
   transition: all 0.2s ease-in-out;
 }
 
-#login .or-register a:hover{
+#profile-edit .or-login a:hover{
   opacity: 0.8;
 }
 
-#login .or-register {
+#profile-edit .or-login {
   color: white;
 }
-
-

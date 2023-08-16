@@ -3,7 +3,9 @@
     My Profile
   </h1>
 
-  <app-posts-grid [showTitle]="false" [postType]="'author'" [typeId]="author._id" [showActions]="true"></app-posts-grid>
+  <a class="btn" routerLink="/profile/edit">Edit Profile</a>
+
+  <app-posts-grid [showTitle]="false" [postType]="'author'" [typeId]="author._id" [showActions]="true" [showMoreButton]="false"></app-posts-grid>
 
 </div>
 

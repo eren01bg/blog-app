@@ -4,6 +4,7 @@ const connectDB = require('./db/db');
 const authRoutes = require('./routes/auth');
 const postRoutes = require('./routes/posts');
 const categoryRoutes = require('./routes/categories');
+const categoryController = require('./controllers/categoryController');
 
 require('dotenv').config();
 
@@ -17,6 +18,17 @@ connectDB();
 app.use('/api/auth', authRoutes);
 app.use('/api/posts', postRoutes);
 app.use('/api/categories', categoryRoutes);
+
+categoryController.getCategoryCount()
+  .then((categoryCount) => {
+    if (categoryCount === 0) {
+      categoryController.createCategories();
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
 
 const PORT = 3000;
 

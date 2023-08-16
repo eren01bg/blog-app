@@ -1,6 +1,6 @@
 const Category = require('../models/category');
 
-exports.createCategories = async (req, res, next) => {
+exports.createCategories = async () => {
 
     const categoryNames = ['Technology', 'Sports', 'Politics', 'Entertainment', 'Fashion', 'Travel', 'Food', 'Health', 'Science', 'Business'];
 
@@ -13,15 +13,17 @@ exports.createCategories = async (req, res, next) => {
             await category.save();
         }
 
-        res.status(201).json({ message: 'Categories created successfully' });
+        return true;
+        
 
-    } catch (error) {
-
-        res.status(400).json({ error });
-
+    }  catch (error) {
+        console.error('Error creating categories:', error);
+        return false;
     }
-
+    
 }
+
+
 
 exports.getCategories = async (req, res, next) => {
 
@@ -37,6 +39,16 @@ exports.getCategories = async (req, res, next) => {
     }
 
 }
+
+exports.getCategoryCount = async () => {
+    try {
+        const count = await Category.countDocuments();
+        return count;
+    } catch (err) {
+        console.log(err);
+    }
+};
+
 
 exports.getCategoryById = async (req, res, next) => {
     

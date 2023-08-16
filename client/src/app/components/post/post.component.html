@@ -1,7 +1,7 @@
 <article id="post">
 
   <div class="labels">
-    <a class="label">{{post.category?.name}}</a>
+    <a routerLink="/category/{{post?.category?._id}}" class="label">{{post.category?.name}}</a>
   </div>
 
   <h1 class="title">
@@ -12,15 +12,15 @@
 
     <div class="user-details">
 
-      <div class="profile-photo">
+      <a class="profile-photo" routerLink="/author/{{post.author?._id}}">
 
         <img src="{{post.author?.image}}" alt="profile-photo">
 
-      </div>
+      </a>
 
-      <div class="user-name">
+      <a class="user-name" routerLink="/author/{{post.author?._id}}">
         {{post.author?.firstName}} {{post.author?.lastName}}
-      </div>
+      </a>
 
     </div>
 

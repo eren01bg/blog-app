@@ -17,9 +17,11 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./posts-grid.component.css'],
 })
 export class PostsGridComponent implements OnChanges, OnInit {
+  // Post type can be 'category', 'author', 'latest', or 'search'
   @Input() postType: string = 'latest';
   // typeId can be either the ID of a category or the author's ID depending on the postType value
   @Input() typeId: string = '';
+  @Input() searchQuery: string = '';
   @Input() limit: number = 6;
   @Input() showTitle: boolean = true;
   @Input() title: string = 'Latest Posts';
@@ -60,6 +62,7 @@ export class PostsGridComponent implements OnChanges, OnInit {
   }
 
   private fetchPosts(): void {
+
     if (this.postType === 'latest') {
       this.postService.getPosts(this.limit).subscribe(this.postObserver);
     }
@@ -73,11 +76,24 @@ export class PostsGridComponent implements OnChanges, OnInit {
         .getPostsByAuthor(this.typeId, this.limit)
         .subscribe(this.postObserver);
     }
+
+    if (this.postType === 'search') {
+      const query = this.searchQuery;
+      this.postService.searchPosts(query).subscribe(this.postObserver);
+    }
+
   }
 
   onDelete(postId: string): void {
-    // this.postService.deletePost(postId).subscribe(() => {
-    //   this.fetchPosts();
-    // });
+
+    const confirmed = confirm('Are you sure you want to delete this post?');
+
+    if (!confirmed) {
+      return;
+    }
+
+    this.postService.deletePost(postId).subscribe(() => {
+      this.fetchPosts();
+    });
   }
 }
